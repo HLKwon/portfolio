@@ -60,12 +60,17 @@ function smoothScroll(target,duration){
 
 var contactLink = document.querySelector('.link1');
 contactLink.addEventListener('click', ()=>{
-  smoothScroll('.aboutWrapper', 1000);
+  smoothScroll('.aboutWrapper', 500);
+});
+
+var contactLink = document.querySelector('.link2');
+contactLink.addEventListener('click', ()=>{
+  smoothScroll('.projectWrapper', 500);
 });
 
 var contactLink = document.querySelector('.link3');
 contactLink.addEventListener('click', ()=>{
-  smoothScroll('.contactTitle', 1000);
+  smoothScroll('.contactTitle', 800);
 });
 
 //Using a for loop to attach smoothScroll function to the 3 links in the nav-link.
