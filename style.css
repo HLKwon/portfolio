@@ -6,118 +6,394 @@
 
 body {
   font-family: 'Lato', sans-serif;
-  /* background-color: #fff5d7; */
+  /* background-color: #EFF6FE; */
+  background-color: #DFECF7;
 }
 
+/* Navigation bar */
 nav {
-  /* background-color: yellow; */
+  /* position: fixed; */
   width: 100%;
-  height: 10vh;
+  min-height: 10vh;
   display: flex;
-  justify-content: center;
-}
-
-nav ul {
-  /* background-color: lightblue; */
-  display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
+.logo {
+  height: 10vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 20px;
+}
+
+nav img {
+  height: 10vh;
+}
+
+.nav-links {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
+
 nav ul li {
-  font-size: calc(20px + 0.2vw);
   list-style: none;
 }
 
 nav a {
   color: black;
   text-decoration: none;
-  margin: 5vw;
+  font-weight: bold;
+  font-size: calc(28px + 0.2vw);
+  letter-spacing: 3px;
 }
 
-@media only screen and (min-width: 415px) {
+nav a:hover{
+  border-bottom: 10px solid #E26118;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+.burger div{
+  width: 10vh;
+  height: 10px;
+  background-color: white;
+  margin: 10px;
+}
+
+@media screen and (max-width:840px) {
+  body{
+    overflow-x: hidden;
+  }
   nav {
-    width: 100%;
-    height: 10vh;
+    background-color: #C1272D;
+  }
+  .nav-links {
+    position: absolute;
+    right: 0px;
+    height: 92vh;
+    width: 40%;
+    top: 10vh;
+    background-color: #C1272D;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+  }
+  .nav-links li {
+    margin: 20px;
+    opacity: 0;
+  }
+  nav a {
+    color: white;
+  }
+  nav a:hover{
+    border-bottom: 10px solid white;
+  }
+  .burger {
+    display: block;
   }
 }
 
+.nav-active{
+  transform: translateX(0%);
+}
+
+/* The <a> elements in the nav will fade into existance when user clicks on burger */
+@keyframes navLinkFade {
+  from{
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to{
+    opacity: 1;
+    transform: translate(0px);
+  }
+}
+
+/* Three parallel lines that form the burger will turn into a X with javascript */
+.toggle .line1{
+  transform: rotate(-45deg) translate(-25px, 0px);
+}
+.toggle .line2{
+  opacity: 0;
+}
+.toggle .line3{
+  transform: rotate(45deg) translate(-25px, 0px);
+}
+
+
+/* Big Container that contains all of the content so that everything is fitted */
+/* into the middle and we have a wide edge on both sides of the content. */
+/* The wide edges will shrink first before the content in the middle shrinks */
 #bigContainer {
-  /* background-color: purple; */
   max-width: 940px;
   margin: 0 auto;
-  /* background-color: #fff5d7; */
 }
 
+/* Header Section which includes the hero image (puffin image) and texts */
 header {
-  height: 90vh;
+  min-height: 90vh;
   width: 100%;
+  padding-top: calc(50px + 10vh);
 }
 
-.heroWrapper {
-  /* background-color: green; */
+#heroWrapper {
   width: 100%;
   display: flex;
-  justify-content: flex-start;
-  padding-top: calc(40px + 5vh);
-  padding-left: 20px;
+
+}
+
+#heroLeft {
+  width: 46%;
+  padding: 40px;
+}
+
+header h2 {
+  font-size: 72px;
+}
+
+header p {
+  font-size: 24px;
+  margin-top: 10px;
   padding-right: 20px;
 }
 
+#heroRight {
+  width: 56%;
+}
+
 #heroImage {
-  /* background-color: blue; */
+}
+
+header img {
+  width: 496px;
+  padding-top: 10px;
+  margin-left:-40px;
+  /* opacity: 0; */
+  /* animation: fadeSimple 0.5s ease-in-out 0.5s forwards; */
+  /* background-color: yellow; */
+}
+
+@media only screen and (max-width: 840px) {
+  header{
+    padding-top: 10vh;
+  }
+
+  #heroWrapper {
+    /* background-color: green; */
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  #heroLeft {
+    width: 100%;
+    padding: 40px;
+  }
+  header h2 {
+    /* background-color: yellow; */
+    font-size: calc(40px + 4vw);
+  }
+  header p {
+    font-size: calc(24px + 1vw);
+    margin-top: 10px;
+    padding-right: 20px;
+  }
+  #heroRight {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  header img {
+    width: 70vw;
+  }
+}
+
+
+/* About Section with personal information */
+.aboutWrapper {
+  width: 100%;
+  padding: 10px;
+}
+
+.topTerminal {
+  width: 100%;
+  height: 32px;
+  border-radius: 20px 20px 0px 0px;
+  background-color: #D3D3D3;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-header img {
-  width: calc(32px + 2.5vw);
-  /* opacity: 0; */
-  /* animation: fadeSimple 0.5s ease-in-out 0.5s forwards; */
+.circle1 {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-left: 12px;
+  background-color: red;
 }
 
-header h1 {
-  /* background-color: yellow; */
-  font-size: calc(32px + 2.5vw);
+.circle2 {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-left: 8px;
+  background-color: yellow;
 }
 
-@media only screen and (min-width: 415px) {
-  header img {
-    width: calc(56px + 2.5vw);
-  }
-
-  header h1 {
-    font-size: calc(56px + 2.5vw);
-  }
+.circle3 {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-left: 8px;
+  background-color: green;
 }
 
-.heroTextWrapper {
-  /* background-color: pink; */
+.mainTerminal {
   width: 100%;
+  background-color: black;
+}
+
+.mainTerminal div {
+  padding: 20px;
+}
+
+.mainTerminal p {
+  color: white;
+  padding: 6px;
+  font-size: calc(16px + 0.3vw);
+  letter-spacing: 0.5px;
+}
+
+.resume a{
+  text-decoration: none;
+  color:#40E0D0;
+}
+.resume a:hover{
+  color: pink;
+}
+
+.blinker {
+  display: inline;
+  background: white;
+  animation-name: blink;
+  animation-duration: 900ms;
+  animation-iteration-count: infinite;
+  opacity: 1;
+}
+
+@keyframes blink {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+
+/* Project Section */
+.projectWrapper{
+  width: 100%;
+  padding: 10px;
+  margin-top: 20vh;
+}
+
+.projectCard{
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 8vh;
+  background-color: #fff;
+  box-shadow: 5px 5px 5px #CDCDCD;
   display: flex;
-  justify-content: flex-start;
-  padding-top: calc(30px + 5vh);
-  padding-left: 20px;
-  padding-right: 20px;
+  align-items: center;
+  border-radius: 1em;
 }
 
-header p {
-  font-size: calc(16px + 1vw);
-  line-height: calc(32px + 2vw);
+.projectImage{
+  min-width: 18em;
+  max-width: 18em;
+  height: 18rem;
+  transform: translateX(-56px);
+  position: relative;
 }
 
-#footerLinks {
-  /* background-color: yellow; */
+.projectImage img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0.8rem;
+}
+
+.projectInfo{
+
+}
+
+.projectInfo h1{
+  font-size: 36px;
+  margin: 0 0 10px 10px;
+}
+
+.projectInfo p{
+  font-size: 20px;
+  margin: 10px 0 30px 10px;
+}
+
+.projectTech {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.projectTech span{
+  font-size: 20px;
+  margin: 10px 0 10px 10px;
+  padding: 5px;
+  border: 2px solid #b4ecb4;
+  border-radius: 5px;
+}
+
+.projectInfo a{
+  font-size: 20px;
+  margin: 10px;
+  padding: 10px;
+  text-decoration: none;
+  background-color: #51a9ff;
+  color: white;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 840px) {
+
+}
+
+
+
+/* Contact Section */
+.contactTitle{
+  display: flex;
+  justify-content: center;
+}
+
+.contactTitle h2{
+  font-size: calc(32px + 0.3vw);
+  font-weight: bold;
+  border-bottom: 10px solid black;
+  margin: 5vw;
+}
+
+.contactLinks {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: 6vh;
+  margin-bottom: 10vh;
 }
 
-footer a {
+.contactLinks a {
   color: black;
   text-decoration: none;
   font-size: calc(24px + 0.3vw);
@@ -125,8 +401,13 @@ footer a {
   margin-right: 3vw;
 }
 
+.contactLinks a:hover {
+  border-bottom: 10px solid #E26118;
+}
+
+
+/* Footer Section */
 #footerCredit {
-  /* background-color: green; */
   display: flex;
   justify-content: center;
 }
@@ -134,24 +415,4 @@ footer a {
 footer p {
   color: black;
   font-size: calc(16px + 0.2vw);
-}
-
-@keyframes fadeSimple {
-  from{
-    opacity:0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeUp {
-  from{
-    opacity: 0;
-    transform: translate(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translate(0px);
-  }
 }
