@@ -331,7 +331,7 @@ header img {
 }
 
 .projectInfo{
-
+  padding: 10px;
 }
 
 .projectInfo h1{
@@ -347,10 +347,13 @@ header img {
 .projectTech {
   margin-top: 10px;
   margin-bottom: 30px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .projectTech span{
-  font-size: 20px;
+  font-size: calc(20px);
   margin: 10px 0 10px 10px;
   padding: 5px;
   border: 2px solid #b4ecb4;
@@ -368,7 +371,19 @@ header img {
 }
 
 @media only screen and (max-width: 840px) {
-
+  .projectImage {
+    display: none;
+  }
+  .projectTech {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .projectTech span{
+    font-size: calc(16px);
+    padding: 5px;
+    border: 2px solid #b4ecb4;
+    border-radius: 5px;
+  }
 }
 
 
